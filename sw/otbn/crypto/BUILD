@@ -2,7 +2,7 @@
 # Licensed under the Apache License, Version 2.0, see LICENSE for details.
 # SPDX-License-Identifier: Apache-2.0
 
-load("//rules:otbn.bzl", "otbn_binary", "otbn_library")
+load("//rules:otbn.bzl", "otbn_binary", "otbn_library", "otbn_jasminc_asm")
 
 package(default_visibility = ["//visibility:public"])
 
@@ -513,4 +513,21 @@ otbn_binary(
         ":field25519",
         ":x25519",
     ],
+)
+
+otbn_jasminc_asm(
+    name = "mul256jazz",
+    srcs = [
+        "mul256.jazz",
+    ],
+    deps = [
+        "load_data.jazz"
+    ]
+)
+
+otbn_library(
+    name = "jasminlib",
+    srcs = [
+        ":mul256jazz"
+    ]
 )

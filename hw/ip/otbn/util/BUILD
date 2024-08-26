@@ -8,6 +8,15 @@ load("@ot_python_deps//:requirements.bzl", "requirement")
 package(default_visibility = ["//visibility:public"])
 
 py_binary(
+    name = "otbn_jasminc",
+    srcs = ["otbn_jasminc.py"],
+    deps = [
+        "//hw/ip/otbn/util/shared:operand",
+        "//hw/ip/otbn/util/shared:toolchain",
+    ],
+)
+
+py_binary(
     name = "otbn_as",
     srcs = ["otbn_as.py"],
     deps = [
