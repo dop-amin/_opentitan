@@ -54,3 +54,17 @@ def find_tool(tool_name: str) -> str:
                        'installed your RISC-V toolchain in an alternate '
                        'location.'
                        .format(expanded, default_location, tool_env_var))
+
+def find_jasminc() -> str:
+    tool_name = 'jasminc'
+    jasmin_path = os.environ.get('JASMIN_PATH')
+    print("jasmin path", jasmin_path)
+    if jasmin_path is not None:
+        tool_path = os.path.join(jasmin_path, tool_name)
+        print(tool_path)
+        if not os.path.exists(tool_path):
+            raise RuntimeError('No such file: {!r} (derived from the '
+                               'TOOLCHAIN_PATH environment variable when '
+                               'trying to find the {!r} tool).'
+                               .format(tool_path, tool_name))
+        return tool_path

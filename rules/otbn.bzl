@@ -33,6 +33,7 @@ def _otbn_compile_jazz_sources(ctx, additional_srcs = []):
 
             arguments = ["-o", asm.path, src.path] + ctx.attr.args,
             executable = ctx.executable._otbn_jasminc,
+            use_default_shell_env=True
         )
 
     return asms

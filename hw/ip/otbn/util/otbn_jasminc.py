@@ -14,7 +14,7 @@ def main() -> int:
     parser.add_argument("-o", "--output", type=str, help="output jasmin arguments")
     args = parser.parse_args()
     
-    jasminc = <PATH TO JASMIN>  # find_jasminc()
+    jasminc = find_jasminc()
     print(jasminc)
 
     default_args = [
