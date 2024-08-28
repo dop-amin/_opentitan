@@ -1149,3 +1149,25 @@ otbn_consttime_test(
         ":x25519_test1",
     ],
 )
+
+# An example of testing with .jazz files with otbn_sim_test.
+
+# load("//rules:otbn.bzl", "otbn_jasminc_asm")
+# otbn_jasminc_asm(
+#     name = "mul256_jasminc_asm",
+#     srcs = [
+#         "mul256_test.jazz",
+#     ],
+#     deps = [
+#         "load_data.jazz",
+#         "mul256.jazz",
+#     ]
+# )
+# 
+# otbn_sim_test(
+#     name = "mul256_jazz_test",
+#     srcs = [
+#         ":mul256_jasminc_asm"
+#     ],
+#     exp = "mul256.exp",
+# )
